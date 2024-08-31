@@ -38,5 +38,5 @@ async def read_item(item_id: int):
 @app.post("/predict")
 async def predict(input_features: InputFeatures):
     data = preprocessing(input_features)
-    y_pred = model.predict(data)  # Use predict instead of fit_predict
+    y_pred = model.predict(data)  
     return {"cluster": int(y_pred[0])}
