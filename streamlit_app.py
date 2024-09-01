@@ -35,7 +35,7 @@ if st.button("Predict"):
 
     if response.status_code == 200:
         result = response.json()
-        st.write(f"Cluster: {result['cluster']}")
-        st.write(f"The Hotel is : {result['description']}")
+        st.success(f"Cluster: {result['cluster']}")
+        st.success(f"The Hotel is : {result['description']}")
     else:
         st.error("Error in prediction")
