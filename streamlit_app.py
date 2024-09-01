@@ -8,7 +8,7 @@ API_URL = "https://labtop.onrender.com/predict"
 st.set_page_config(page_title="Hotel Clustering Prediction", layout="centered")
 
 # Add the header image
-header_image_path = "./image.png"
+header_image_path = "./1.webp"
 st.image(header_image_path, use_column_width=True)
 
 # Add a title and description
