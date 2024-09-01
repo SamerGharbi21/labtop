@@ -7,9 +7,38 @@ API_URL = "https://labtop.onrender.com/predict"
 # Streamlit application layout
 st.set_page_config(page_title="Hotel Clustering Prediction", layout="centered")
 
+# Custom CSS for styling
+st.markdown("""
+    <style>
+    .stButton button {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+    .stButton button:hover {
+        background-color: #45a049;
+    }
+    .stTitle {
+        color: #2C3E50;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+    }
+    .stHeader {
+        background-color: #2980B9;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        border-radius: 10px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 # Add a header with an image
 st.image("https://via.placeholder.com/800x200.png?text=Hotel+Clustering+Prediction", use_column_width=True)
-st.title("Hotel Clustering Prediction")
+st.title("Hotel Clustering Prediction", anchor="center")
 
 st.write("Enter the features of your hotel to predict its cluster:")
 
@@ -30,7 +59,7 @@ with col2:
     airport_shuttle = st.selectbox("Airport Shuttle", options=[0, 1])
 
 # Button to send the data to the FastAPI server
-if st.button("Predict", use_container_width=True):
+if st.button("Predict"):
     # Prepare the input data
     data = {
         "Price": price,
@@ -53,5 +82,3 @@ if st.button("Predict", use_container_width=True):
         st.info(f"The Hotel is: {result['description']}")
     else:
         st.error("Error in prediction. Please check your inputs and try again.")
-
-
