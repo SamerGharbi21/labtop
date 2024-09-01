@@ -81,4 +81,4 @@ async def predict(input_features: InputFeatures):
     # Map the prediction to the corresponding label
     prediction_label = cluster_mapping.get(int(y_pred[0]), "Unknown cluster")
     
-    return {"cluster": int(y_pred[0]), "description": prediction_label}
+    return {"cluster": int(y_pred[0]), "The Hotel is ": prediction_label}
