@@ -75,8 +75,14 @@ if submit_button:
     if response.status_code == 200:
         result = response.json()
         
-        # Simplified output
-        st.subheader(f"Cluster: {result['cluster']}")
-        st.write(f"Description: {result['description']}")
+        # Custom styled output like the provided image
+        st.markdown(
+            f"""
+            <div style="background-color:#2e7d32; padding: 10px; border-radius: 8px;">
+                <h4 style="color:white;">Cluster: {result['cluster']}</h4>
+                <p style="color:white;">Description: {result['description']}</p>
+            </div>
+            """, unsafe_allow_html=True
+        )
     else:
         st.error("Error in prediction. Please check your inputs and try again.")
