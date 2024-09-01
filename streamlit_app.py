@@ -7,38 +7,12 @@ API_URL = "https://labtop.onrender.com/predict"
 # Streamlit application layout
 st.set_page_config(page_title="Hotel Clustering Prediction", layout="centered")
 
-# Custom CSS for styling
-st.markdown("""
-    <style>
-    .stButton button {
-        background-color: #4CAF50;
-        color: white;
-        font-size: 16px;
-        padding: 10px;
-        border-radius: 8px;
-        transition: 0.3s;
-    }
-    .stButton button:hover {
-        background-color: #45a049;
-    }
-    .stTitle {
-        color: #2C3E50;
-        font-family: 'Arial', sans-serif;
-        text-align: center;
-    }
-    .stHeader {
-        background-color: #2980B9;
-        color: white;
-        padding: 15px;
-        text-align: center;
-        border-radius: 10px;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+# Add the header image
+header_image_path = "./image.png"
+st.image(header_image_path, use_column_width=True)
 
-# Add a header with an image
-st.image("https://via.placeholder.com/800x200.png?text=Hotel+Clustering+Prediction", use_column_width=True)
-st.title("Hotel Clustering Prediction", anchor="center")
+# Add a title and description
+st.title("Hotel Clustering Prediction")
 
 st.write("Enter the features of your hotel to predict its cluster:")
 
