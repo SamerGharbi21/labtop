@@ -32,8 +32,28 @@ with st.form(key='hotel_form'):
         facilities = st.selectbox("Facilities", options=[0, 1])
         airport_shuttle = st.selectbox("Airport Shuttle", options=[0, 1])
 
-    # Button to send the data to the FastAPI server, with a more prominent style
-    submit_button = st.form_submit_button(label="Predict")
+    # Use a container for the button and apply CSS for full-width
+    st.markdown(
+        """
+        <style>
+        .full-width-button button {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .full-width-button button:hover {
+            background-color: #45a049;
+        }
+        </style>
+        """, unsafe_allow_html=True
+    )
+
+    with st.container():
+        submit_button = st.form_submit_button(label="Predict", help="Submit the hotel data for clustering")
 
 if submit_button:
     # Prepare the input data
