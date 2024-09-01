@@ -37,10 +37,10 @@ if st.button("Predict"):
     
     # Send the request to the FastAPI server
     response = requests.post(API_URL, json=data)
-    
+
     if response.status_code == 200:
         result = response.json()
         st.write(f"Cluster: {result['cluster']}")
-        st.write(f"Description: {result['description']}")
+        st.write(f"The Hotel is : {result['description']}")
     else:
         st.error("Error in prediction")
