@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # URL of the FastAPI server
-API_URL = "https://labtop.onrender.com/predict"
+API_URL = "http://localhost:8000/predict"
 
 # Streamlit application layout
 st.title("Hotel Clustering Prediction")
@@ -10,15 +10,17 @@ st.title("Hotel Clustering Prediction")
 st.write("Enter the features of the hotel:")
 
 # Collect user input
-price = st.slider("Price", min_value=0, max_value=12000, value=500)
-rating = st.slider("rating", min_value=0.0, max_value=10.0, value=1.0)
-spa = st.number_input("Spa (0 or 1)", min_value=0, max_value=1)
-wellness_centre = st.number_input("Wellness Centre (0 or 1)", min_value=0, max_value=1)
-swimming_pool = st.number_input("Swimming Pool (0 or 1)", min_value=0, max_value=1)
-fitness_centre = st.number_input("Fitness Centre (0 or 1)", min_value=0, max_value=1)
-room_service = st.number_input("Room Service (0 or 1)", min_value=0, max_value=1)
-facilities = st.number_input("Facilities (0 or 1)", min_value=0, max_value=1)
-airport_shuttle = st.number_input("Airport Shuttle (0 or 1)", min_value=0, max_value=1)
+price = st.number_input("Price", min_value=0.0, step=0.1)
+rating = st.number_input("Rating", min_value=0.0, step=0.1)
+
+# Using selectbox for binary features
+spa = st.selectbox("Spa", options=[0, 1])
+wellness_centre = st.selectbox("Wellness Centre", options=[0, 1])
+swimming_pool = st.selectbox("Swimming Pool", options=[0, 1])
+fitness_centre = st.selectbox("Fitness Centre", options=[0, 1])
+room_service = st.selectbox("Room Service", options=[0, 1])
+facilities = st.selectbox("Facilities", options=[0, 1])
+airport_shuttle = st.selectbox("Airport Shuttle", options=[0, 1])
 
 # Button to send the data to the FastAPI server
 if st.button("Predict"):
