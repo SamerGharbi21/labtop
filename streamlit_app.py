@@ -54,20 +54,4 @@ if st.button("Predict", use_container_width=True):
     else:
         st.error("Error in prediction. Please check your inputs and try again.")
 
-# Add footer
-st.markdown("""
-    <style>
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            padding: 10px;
-            background-color: #f1f1f1;
-            color: #555;
-        }
-    </style>
-    <div class="footer">
-        <p>Powered by Streamlit and FastAPI</p>
-    </div>
-    """, unsafe_allow_html=True)
+
