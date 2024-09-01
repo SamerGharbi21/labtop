@@ -10,8 +10,8 @@ st.title("Hotel Clustering Prediction")
 st.write("Enter the features of the hotel:")
 
 # Collect user input
-price = st.number_input("Price", min_value=0.0, step=0.1)
-rating = st.number_input("Rating", min_value=0.0, step=0.1)
+price = st.slider("Price", min_value=0, max_value=12000, value=500)
+rating = st.slider("rating", min_value=0.0, max_value=10.0, value=1.0)
 spa = st.number_input("Spa (0 or 1)", min_value=0, max_value=1)
 wellness_centre = st.number_input("Wellness Centre (0 or 1)", min_value=0, max_value=1)
 swimming_pool = st.number_input("Swimming Pool (0 or 1)", min_value=0, max_value=1)
